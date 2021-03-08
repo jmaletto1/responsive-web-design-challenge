@@ -25,6 +25,13 @@ footer {
 }
 
 /* Typography */
+
+/* Text colour and background when selected by the user. */
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
 html {
   /* 62.5% of 16px = 10px */
   font-size: 62.5%;
@@ -55,6 +62,7 @@ h2 {
 
 h3 {
   font-size: 3rem;
+  font-weight: 500;
 }
 
 p {
@@ -147,7 +155,6 @@ a {
 .list {
   list-style: none;
   padding-left: 0;
-  color: var(--color-headings);
 }
 
 .list--inline .list__item {
@@ -158,6 +165,7 @@ a {
 .list--tick {
   list-style-image: url("../images/tick.svg");
   padding-left: 3rem;
+  color: var(--color-headings);
 }
 
 .list--tick .list__item {
@@ -437,6 +445,7 @@ a {
 
 .media {
   display: flex;
+  margin-bottom: 4rem;
 }
 
 .media__title {
@@ -653,12 +662,14 @@ a {
   color: #7b858b;
 }
 
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
   color: #fff;
 }
 
 .block--skewed-right {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
@@ -731,10 +742,10 @@ a {
 }
 
 /* Hero */
-
+/* 
 .hero {
   clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-}
+} */
 
 .hero__tagline {
   font-size: 2rem;
@@ -817,5 +828,25 @@ a {
 @media screen and (min-width: 768px) {
   .feature:nth-of-type(even) .feature__content {
     order: 2;
+  }
+}
+
+/* Showcase Block */
+.block-showcase__image > img {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%;
+  }
+
+  .block-showcase__image {
+    justify-self: end;
+  }
+
+  .block-showcase__image > img {
+    width: auto;
+    max-width: 700px;
   }
 }
